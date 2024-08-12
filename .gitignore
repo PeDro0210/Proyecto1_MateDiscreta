@@ -1,4 +1,4 @@
-.vscode/
+.vscode/git push -u origin main
 .pytest_cache
 bin
 include
