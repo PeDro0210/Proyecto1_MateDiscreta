@@ -1,11 +1,9 @@
 #Reto: we'll do this shit, using declarative and functional programming
-#if we don't do that, please put us 0 on the project
-#
 import src.setOperation as op
 
+#TODO: comment this code
 
-
-def operateSets(sets:list[dict]):
+def operateSets(sets:list[set[str]]):
     while True:
         print("1. Complemento")
         print("2. Union")
@@ -27,14 +25,14 @@ def operateSets(sets:list[dict]):
                 print(f"la diferencia simetrica de los conjuntos es: {op.nullElement(op.simetricDifference(sets[0],sets[1]))}")
 
 
-def createSets() -> list[dict]:
-    set1 = {}
-    set2 = {}
+def createSets() -> list[set[str]]:
+    set1 = None
+    set2 = None
 
     while True:
         set1_elements = input("Entrar elementos del primero conjunto (separado por espacios): ").split()
         if all(element in op.universe_set for element in set1_elements):
-            set1 = set1_elements
+            set1 = set(set1_elements)
             break
         else: 
             print("No se ingresaron elementos válidos")
@@ -42,7 +40,7 @@ def createSets() -> list[dict]:
     while True:
         set2_elements = input("Entrar elementos del segundo conjunto (separado por espacios): ").split()
         if all(element in op.universe_set for element in set2_elements):
-            set2 = set2_elements
+            set2 = set(set2_elements)
             break
         else:
             print("No se ingresaron elementos válidos")
@@ -51,7 +49,7 @@ def createSets() -> list[dict]:
     return sets
 
 if __name__ == "__main__":
-    sets:list[dict] = None
+    sets = None
 
     while True:
         print("1. Construir Conjuntos")

@@ -5,6 +5,7 @@ universe_set = list("abcdefghijklmnopqrstvwxyz0123456789")
 
 #TODO: translate documentation, if mario says so
 #TODO: calculate each time complexity
+
 def nullElement(set1:dict) -> set:
     if not set1:
         return set("∅")
@@ -43,7 +44,7 @@ def union(set1:dict, set2:dict) -> dict:
     """
     return {**set1, **set2}
 
-#* o(n*u)
+#* o(n+u)
 #* Declarative Cyclic
 def complement(set1:dict) -> dict:
     """
@@ -80,3 +81,4 @@ def simetricDifference(set1:set, set2:set) -> dict:
     return union(setCasting(difference(set1, set2)),setCasting(difference(set2, set1)))
 
 #! alv, que mamon esta el codigo ngl, estoy muy orgulloso de esto
+#! nvm, no estoy orgulloso de el, es lento y las ultimas tres no se entienden y cuesta leerlas
