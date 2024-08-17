@@ -3,7 +3,7 @@ import src.setOperation as op
 
 #TODO: comment this code
 
-def operateSets(sets:list[set[str]]):
+def operateSets(sets:list[dict[str,str]]):
     while True:
         print("1. Complemento")
         print("2. Union")
@@ -14,9 +14,10 @@ def operateSets(sets:list[set[str]]):
         opcion = int(input("Elige una opcion: "))
         match opcion:
             case 1:
-                print(f"el complemento del conjunto es: {op.nullElement(op.complement(sets[0]))}")
+                print(f"el complemento del conjunto 1 es: {op.nullElement(op.complement(sets[0]))}")
+                print(f"el complemento del conjunto 2 es: {op.nullElement(op.complement(sets[1]))}")
             case 2:
-                print(f"la union de los conjuntos es: {op.nullElement(op.union(op.setCasting(sets[0]), op.setCasting(sets[1])))}")
+                print(f"la union de los conjuntos es: {op.nullElement(op.union(sets[0], sets[1]))}")
             case 3:
                 print(f"la interseccion de los conjuntos es: {op.nullElement(op.intersection(sets[0], sets[1]))}")
             case 4:
@@ -25,7 +26,7 @@ def operateSets(sets:list[set[str]]):
                 print(f"la diferencia simetrica de los conjuntos es: {op.nullElement(op.simetricDifference(sets[0],sets[1]))}")
 
 
-def createSets() -> list[set[str]]:
+def createSets() -> list[dict[str,str]]:
     set1 = None
     set2 = None
 
@@ -44,7 +45,7 @@ def createSets() -> list[set[str]]:
             break
         else:
             print("No se ingresaron elementos válidos")
-    sets = [set1, set2]
+    sets = [op.setCasting(set1), op.setCasting(set2)]
 
     return sets
 
