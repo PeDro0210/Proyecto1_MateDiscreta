@@ -33,7 +33,7 @@ def createSets() -> list[dict[str,str]]:
     while True:
         set1_elements = input("Entrar elementos del primero conjunto (separado por espacios): ").split()
         if all(element in op.universe_set for element in set1_elements):
-            set1 = set(set1_elements)
+            set1 = set1_elements
             break
         else: 
             print("No se ingresaron elementos válidos")
@@ -41,7 +41,7 @@ def createSets() -> list[dict[str,str]]:
     while True:
         set2_elements = input("Entrar elementos del segundo conjunto (separado por espacios): ").split()
         if all(element in op.universe_set for element in set2_elements):
-            set2 = set(set2_elements)
+            set2 = set2_elements
             break
         else:
             print("No se ingresaron elementos válidos")

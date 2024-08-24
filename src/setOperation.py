@@ -13,7 +13,7 @@ def nullElement(set1:dict) -> set:
         return set(set1)
 
 #* o(n)
-def setCasting(set1:set) -> dict:
+def setCasting(set1:list) -> dict:
     """
     does list comprehension with dummy values
     """
