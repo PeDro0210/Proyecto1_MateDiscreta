@@ -21,15 +21,15 @@ def setCasting(set1:list) -> dict:
 #* Ciclo Declarativo
 def union(set1:dict, set2:dict) -> dict:
     """
-    Dado dos diccionarios, siendo set1 y set2 (lmao, no son nombres apropiados para ellos),
+    Dado dos diccionarios, siendo set1 y set2,
     donde los valores de cada diccionario son irrelevantes. La función union
     desempaqueta ambos diccionarios, sobrescribiendo los valores del segundo con los 
     valores del primero.
 
     Aquí un ejemplo bonito:
 
-    set1 = {"z":"_","e":"_","1":"_","c":"_"}
-    set2 = {"a":"_","b":"_","c":"_", "e":"_"}
+    set1 = {"z":"","e":"","1":"","c":""}
+    set2 = {"a":"","b":"","c":"", "e":""}
 
     va a regresar 
 
@@ -77,7 +77,3 @@ def simetricDifference(set1:dict, set2:dict) -> dict:
     para construir la operación de diferencia simétrica.
     """
     return union(difference(set1, set2),difference(set2, set1))
-
-#! alv, qué mamón está el código, la verdad estoy muy orgulloso de esto
-#! nvm, ya no estoy orgulloso, es lento y las últimas tres no se entienden y son difíciles de leer
-

@@ -1,7 +1,4 @@
-#Reto: we'll do this shit, using declarative and functional programming
 import src.setOperation as op
-
-#TODO: comment this code
 
 def operateSets(sets:list[dict[str,str]]):
     while True:
@@ -21,8 +18,7 @@ def operateSets(sets:list[dict[str,str]]):
             case 3:
                 print(f"la interseccion de los conjuntos es: {op.nullElement(op.intersection(sets[0], sets[1]))}")
             case 4:
-                print(f"la diferencia de conjunto 1 es: {op.nullElement(op.difference(sets[0],sets[1]))}")
-                print(f"la diferencia de conjunto 2 es: {op.nullElement(op.difference(sets[1],sets[0]))}")
+                print(f"la diferencia de los conjuntos es: {op.nullElement(op.difference(sets[0],sets[1]))}")
             case 5:
                 print(f"la diferencia simetrica de los conjuntos es: {op.nullElement(op.simetricDifference(sets[0],sets[1]))}")
 
@@ -67,6 +63,7 @@ if __name__ == "__main__":
                 case 2:
                     if sets is not None:
                         operateSets(sets)
-                    else: print("No esta creado el conjunto")
+                    else:
+                        print("No esta creado el conjunto")
                 case 3:
                     break
