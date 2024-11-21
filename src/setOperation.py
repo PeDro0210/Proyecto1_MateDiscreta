@@ -1,10 +1,7 @@
-#* by defining a fast enough union, everything else should have a low time complexity (except the complement)
-
-
 universe_set = list("abcdefghijklmnopqrstvwxyz0123456789")
 
-#TODO: translate documentation, if mario says so
-#TODO: calculate each time complexity
+#TODO: traducir la documentación, si Mario lo dice
+#TODO: calcular la complejidad temporal de cada función
 
 
 def nullElement(set1:dict) -> list:
@@ -16,20 +13,20 @@ def nullElement(set1:dict) -> list:
 #* o(n)
 def setCasting(set1:list) -> dict:
     """
-    does list comprehension with dummy values
+    Realiza una comprensión de listas con valores dummy
     """
     return {x:"_" for x in set1}
 
 #* o(n+m)
-#* Declarive Cycle
+#* Ciclo Declarativo
 def union(set1:dict, set2:dict) -> dict:
     """
-    given to dictionaries, being set1 and set2 (lmao, not appropiate names for them),
-    where the values of each of the dictionaries is irrelevant. The function union 
-    unpacks both dicts, while overwriting the values of the second one with the 
-    values of the first one
+    Dado dos diccionarios, siendo set1 y set2 (lmao, no son nombres apropiados para ellos),
+    donde los valores de cada diccionario son irrelevantes. La función union
+    desempaqueta ambos diccionarios, sobrescribiendo los valores del segundo con los 
+    valores del primero.
 
-    Aqui un ejemplo bonito:
+    Aquí un ejemplo bonito:
 
     set1 = {"z":"_","e":"_","1":"_","c":"_"}
     set2 = {"a":"_","b":"_","c":"_", "e":"_"}
@@ -38,48 +35,49 @@ def union(set1:dict, set2:dict) -> dict:
 
     union = {z, e, 1, c, a, b} 
 
-    Esta solucion es o(n), porque el desempaque de por si es lineal
+    Esta solución es o(n), porque el desempaque de por sí es lineal.
 
-    Ademas de esto no utiliza funciones como tal de python si lo queremos ver asi,
-    ademas de eso no utiliza explicitimante ninguna funcion 
+    Además de esto no utiliza funciones como tal de Python si lo queremos ver así,
+    y tampoco utiliza explícitamente ninguna función.
     """
     return {**set1, **set2}
 
 #* o(n+u)
-#* Declarative Cyclic
+#* Ciclo Declarativo
 def complement(set1:dict) -> dict:
     """
-    given a set, which is set1, it uses list comprehension for each value of the universe
-    and it checks if the value is in the set1
+    Dado un conjunto, que es set1, utiliza una comprensión de listas para cada valor del universo
+    y verifica si el valor está en set1.
     """
     return {x:"_" for x in universe_set if x not in set1}
 
 #* o(u^2*n*m)
-#* Declarative Functional
+#* Funcional Declarativo
 def intersection(set1:dict, set2:dict) -> dict:
     """
-    given 2 sets, being set1 and set2, it uses higher order functions (being union and complement)
-    to build the set operation of intersection
+    Dados 2 conjuntos, siendo set1 y set2, utiliza funciones de orden superior (siendo union y complement)
+    para construir la operación de intersección.
     """
     return complement(union(complement(set1), complement(set2)))
 
 #* o(u^2*n*m)
-#* Declarative Functional
+#* Funcional Declarativo
 def difference(set1:dict, set2:dict) -> dict:
     """
-    given 2 sets, being set1 and set2, it uses higher order functions (being union and complement)
-    to build the set operation of difference
+    Dados 2 conjuntos, siendo set1 y set2, utiliza funciones de orden superior (siendo union y complement)
+    para construir la operación de diferencia.
     """
     return intersection(set1, complement(set2))
 
 #* o(u^2*n*m)
-#* Declarative Functional
+#* Funcional Declarativo
 def simetricDifference(set1:dict, set2:dict) -> dict:
     """
-    given 2 sets, being set1 and set2, it uses higher order functions (being union and complement)
-    to build the set operation of simetricDifference
+    Dados 2 conjuntos, siendo set1 y set2, utiliza funciones de orden superior (siendo union y complement)
+    para construir la operación de diferencia simétrica.
     """
     return union(difference(set1, set2),difference(set2, set1))
 
-#! alv, que mamon esta el codigo ngl, estoy muy orgulloso de esto
-#! nvm, no estoy orgulloso de el, es lento y las ultimas tres no se entienden y cuesta leerlas
+#! alv, qué mamón está el código, la verdad estoy muy orgulloso de esto
+#! nvm, ya no estoy orgulloso, es lento y las últimas tres no se entienden y son difíciles de leer
+
