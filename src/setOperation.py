@@ -6,11 +6,12 @@ universe_set = list("abcdefghijklmnopqrstvwxyz0123456789")
 #TODO: translate documentation, if mario says so
 #TODO: calculate each time complexity
 
-def nullElement(set1:dict) -> set:
+
+def nullElement(set1:dict) -> list:
     if not set1:
-        return set("∅")
+        return ["∅"]
     else:
-        return set(set1)
+        return [set1]
 
 #* o(n)
 def setCasting(set1:list) -> dict:
